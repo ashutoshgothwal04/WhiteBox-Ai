@@ -1,10 +1,10 @@
-// import { User } from "firebase/auth";
-// import { createContext } from "react";
-// interface AuthContextType {
-//     user: User | null;
-// }
+import { User } from "firebase/auth";
+import { createContext } from "react";
+interface AuthContextType {
+    user: User | null;
+}
 
-// export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 
 
@@ -64,11 +64,37 @@
 
 
 
-import { createContext } from "react";
-import { User } from "firebase/auth";
+// "use client";
 
-export interface AuthContextType {
-  user: User | null;
-}
+// import { createContext, useEffect, useState, ReactNode } from "react";
+// import { account } from "configs/appwriteConfig";
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+// export interface AuthContextType {
+//   user: any | null;
+//   login: (email: string, password: string) => Promise<void>;
+//   logout: () => Promise<void>;
+//   register: (email: string, password: string, name: string) => Promise<void>;
+// }
+
+// export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+// export const AuthProvider = ({ children }: { children: ReactNode }) => {
+//   const [user, setUser] = useState<any | null>(null);
+
+//   const login = async (email: string, password: string) => {
+//     try {
+//       await account.createEmailSession(email, password);
+//       const user = await account.get();
+//       setUser(user);
+//     } catch (error) {
+//       console.error("Login failed:", error);
+//       throw error;
+//     }
+//   };
+
+//   const logout = async () => {
+//     try {
+//       await account.deleteSession("current");
+//       setUser(null);
+//     } catch (error) {
+//       console.error("Logout failed:", error);
